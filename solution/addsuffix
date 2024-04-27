@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+    exit 1
+fi
+
+suffix="$1"
+
+if [ -z "$suffix" ]; then
+    exit 1
+fi
+
+for file in "${@:2}"; do
+    if [ "$file" ]; then
+        mv "$file" "${file}${suffix}"
+    fi
+done
