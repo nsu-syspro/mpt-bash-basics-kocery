@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    exit 1
+fi
+
+if [ ! -f "$1" ]; then
+    exit 1
+fi
+
+unpacked_dir="${1}.unpacked"
+if [ ! -d "$unpacked_dir" ]; then
+    mkdir "$unpacked_dir"
+fi
+
+tar -xf "$1" -C "$unpacked_dir"
